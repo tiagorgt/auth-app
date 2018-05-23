@@ -1,0 +1,60 @@
+mat-card {
+    width: 360px;
+    position: relative;
+    z-index: 100;
+    top: 200px;
+    background: #fff;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+.signup-header {
+    text-align: center;
+}
+
+.signup-actions {
+    margin-top: 15px;
+}
+
+.signup-social {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.signup-social .mat-icon-button {
+    font-size: 24px;
+}
+
+.signup-social-divider {
+    margin-top: 15px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    color: #999;
+}
+
+.signup-social-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    background: #e5e5e5;
+    height: 1px;
+    width: 100%;
+}
+
+.signup-social-divider span {
+    background: #fff;
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    font-size: 14px;
+}
+
+.signup-footer {   
+    padding-top: 15px; 
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+

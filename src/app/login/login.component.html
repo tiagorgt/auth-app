@@ -1,0 +1,66 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-content>
+      <div class="login-header">
+        <h3>Sign In</h3>
+      </div>
+      <form [formGroup]="loginForm" fxLayout="column">
+        <mat-form-field [hideRequiredMarker]="loginForm.value.hideRequired" [floatLabel]="loginForm.value.floatLabel" [appearance]="loginForm.value.appearance">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Enter your e-mail" type="email" formControlName="email">
+          <mat-error *ngIf="loginForm.get('email').invalid">
+            <span *ngIf="loginForm.get('email').hasError('required')">E-mail required</span>
+            <span *ngIf="loginForm.get('email').hasError('email')">Invalid format</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field [hideRequiredMarker]="loginForm.value.hideRequired" [floatLabel]="loginForm.value.floatLabel" [appearance]="loginForm.value.appearance">
+          <mat-icon matPrefix>lock</mat-icon>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="loginForm.get('password').invalid">
+            <span *ngIf="loginForm.get('password').hasError('required')">Password required</span>
+          </mat-error>
+        </mat-form-field>
+
+        <a href="">Forgot password?</a>
+
+        <div class="login-actions" fxLayout="column">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+      </form>
+
+      <div class="login-social-divider">
+        <span>Or sign in with your favorite social network</span>
+      </div>
+
+      <div class="login-social" fxLayout="row wrap">
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="facebook-background">
+            <i class="icon ion-logo-facebook"></i>
+          </button>
+        </div>
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="google-plus-background">
+            <i class="icon ion-logo-googleplus"></i>
+          </button>
+        </div>
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="linkedin-background">
+            <i class="icon ion-logo-linkedin"></i>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>    
+    
+    <mat-divider inset="true"></mat-divider>
+
+    <div class="login-footer">
+      <span>You don't have an account?
+        <a routerLink="/signup">Sign Up</a>
+      </span>
+    </div>
+  </mat-card>
+</div>

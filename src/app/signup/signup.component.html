@@ -1,0 +1,73 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-content>
+      <div class="signup-header">
+        <h3>Sign Up</h3>
+      </div>
+      <form [formGroup]="signupForm" fxLayout="column">
+        <mat-form-field [hideRequiredMarker]="signupForm.value.hideRequired" [floatLabel]="signupForm.value.floatLabel" [appearance]="signupForm.value.appearance">
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" type="text" formControlName="name">
+          <mat-error *ngIf="signupForm.get('name').invalid">
+            <span *ngIf="signupForm.get('name').hasError('required')">Name required</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field [hideRequiredMarker]="signupForm.value.hideRequired" [floatLabel]="signupForm.value.floatLabel" [appearance]="signupForm.value.appearance">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-label>E-mail</mat-label>
+          <input matInput placeholder="Enter your e-mail" type="email" formControlName="email">
+          <mat-error *ngIf="signupForm.get('email').invalid">
+            <span *ngIf="signupForm.get('email').hasError('required')">E-mail required</span>
+            <span *ngIf="signupForm.get('email').hasError('email')">Invalid format</span>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field [hideRequiredMarker]="signupForm.value.hideRequired" [floatLabel]="signupForm.value.floatLabel" [appearance]="signupForm.value.appearance">
+          <mat-icon matPrefix>lock</mat-icon>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="signupForm.get('password').invalid">
+            <span *ngIf="signupForm.get('password').hasError('required')">Password required</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="signup-actions" fxLayout="column">
+          <button mat-raised-button color="primary" type="submit">Sign Up</button>
+        </div>
+      </form>
+
+      <div class="signup-social-divider">
+        <span>Or sign up with your favorite social network</span>
+      </div>
+
+      <div class="signup-social" fxLayout="row wrap">
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="facebook-background">
+            <i class="icon ion-logo-facebook"></i>
+          </button>
+        </div>
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="google-plus-background">
+            <i class="icon ion-logo-googleplus"></i>
+          </button>
+        </div>
+        <div fxFlex="(100 / 3)%">
+          <button mat-icon-button class="linkedin-background">
+            <i class="icon ion-logo-linkedin"></i>
+          </button>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-divider inset="true"></mat-divider>
+
+    <div class="signup-footer">
+      <span>You already have an account?
+        <a routerLink="/login">Sign In</a>
+      </span>
+    </div>
+  </mat-card>
+</div>
